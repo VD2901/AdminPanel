@@ -7,12 +7,12 @@ import logoDark from "../assets/images/logo-dark.png";
 import logoLight from "../assets/images/logo-light.png";
 
 //Import Components
-import VerticalLayout from "./VerticalLayouts";
-import TwoColumnLayout from "./TwoColumnLayout";
+import VerticalLayout from "./VerticalLayouts"; 
 import { Container } from "reactstrap";
-import HorizontalLayout from "./HorizontalLayout";
 
 const Sidebar = ({ layoutType }) => {
+
+  console.log("layoutType111" , layoutType)
 
   useEffect(() => {
     var verticalOverlay = document.getElementsByClassName("vertical-overlay");
@@ -64,33 +64,17 @@ const Sidebar = ({ layoutType }) => {
             <i className="ri-record-circle-line"></i>
           </button>
         </div>
-        {layoutType === "horizontal" ? (
-          <div id="scrollbar">
-            <Container fluid>
-              <div id="two-column-menu"></div>
-              <ul className="navbar-nav" id="navbar-nav">
-                <HorizontalLayout />
-              </ul>
-            </Container>
-          </div>
-        ) : layoutType === 'twocolumn' ? (
-          <React.Fragment>
-            <TwoColumnLayout layoutType={layoutType} />
-            <div className="sidebar-background"></div>
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
+        <React.Fragment>
             <SimpleBar id="scrollbar" className="h-100">
               <Container fluid>
                 <div id="two-column-menu"></div>
-                <ul className="navbar-nav" id="navbar-nav">
+                <ul className="navbar-nav 978555" id="navbar-nav">
                   <VerticalLayout layoutType={layoutType} />
                 </ul>
               </Container>
             </SimpleBar>
             <div className="sidebar-background"></div>
           </React.Fragment>
-        )}
       </div>
       <div className="vertical-overlay"></div>
     </React.Fragment>

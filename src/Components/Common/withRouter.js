@@ -6,6 +6,7 @@ import {
 
 function withRouter(Component) {
     function ComponentWithRouterProp(props) {
+        console.log('props4444' , props)
         let location = useLocation();
         let navigate = useNavigate();
         let params = useParams();
