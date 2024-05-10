@@ -276,7 +276,7 @@ const InvoiceList = () => {
         />
         <Container fluid>
           <BreadCrumb title="Invoice List" pageTitle="Invoices" />
-          <Row>
+          {/* <Row>
             {invoiceWidgets.map((invoicewidget, key) => (
               <React.Fragment key={key}>
                 <Col xl={3} md={6}>
@@ -334,7 +334,7 @@ const InvoiceList = () => {
                 </Col>
               </React.Fragment>
             ))}
-          </Row>
+          </Row> */}
           <Row>
             <Col lg={12}>
               <Card id="invoiceList">

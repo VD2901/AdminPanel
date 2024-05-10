@@ -1,3 +1,4 @@
+import { icon } from "leaflet";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -6,7 +7,7 @@ const Navdata = () => {
     //state data
     const [isDashboard, setIsDashboard] = useState(false);
     const [isInvoices, setIsInvoices] = useState(false);
-
+    const [isEcommerce , setIsEcommerce] = useState(false);
    
 
     const [iscurrentState, setIscurrentState] = useState('Dashboard');
@@ -32,12 +33,16 @@ const Navdata = () => {
         if (iscurrentState !== 'Invoices') {
             setIsInvoices(false);
         }
+        if (iscurrentState !== 'ecommerce') {
+            setIsEcommerce(false);
+        }
    
     }, [
         history,
         iscurrentState,
         isDashboard,
         isInvoices,
+        isEcommerce,
     ]);
 
     const menuItems = [
@@ -71,7 +76,6 @@ const Navdata = () => {
                 setIscurrentState('Invoices');
                 updateIconSidebar(e);
             },
-            stateVariables: isInvoices,
             subItems: [
                 { id: 1,
                     label: "List View",
@@ -79,6 +83,34 @@ const Navdata = () => {
                     parentId: "Invoices"}
             ]
         },
+        {
+            id: "ecommerce",
+            label: "Ecommerce",
+            icon : "ri-dashboard-2-line",
+            link:"/#",
+            stateVariables: isEcommerce,
+            click: function (e) {
+                e.preventDefault();
+                setIsEcommerce(!isEcommerce);
+                setIscurrentState('ecommerce');
+                updateIconSidebar(e);
+                
+            },
+            subItems: [
+                {
+                    id: "1",
+                    label : "Create Product",
+                    link: "/apps-ecommerce-add-product",
+                    parentId: "ecommerce"
+                },
+                {
+                    id: "2",
+                    label : "Product Details",
+                    link: "/apps-ecommerce-product-details",
+                    parentId: "ecommerce"
+                },
+            ]
+        }
        
     ];
     return <React.Fragment>{menuItems}</React.Fragment>;
