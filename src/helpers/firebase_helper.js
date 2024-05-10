@@ -18,7 +18,6 @@ class FirebaseAuthBackend {
       });
     }
   }
-
   /**
    * Registers the user with given details
    */

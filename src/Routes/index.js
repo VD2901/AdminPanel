@@ -27,7 +27,6 @@ const Index = () => {
                         />
                     ))}
                 </Route>
-
                 <Route>
                     {authProtectedRoutes.map((route, idx) => (
                         <Route
